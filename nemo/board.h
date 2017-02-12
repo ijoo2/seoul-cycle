@@ -3,6 +3,12 @@
 #include <cstdint>
 #include <intrin.h>
 
+#ifdef BOARD_EXPORTS
+#define BOARD_API _declspec(dllexport)
+#else
+#define BOARD_API _declspec(dllimport)
+#endif
+
 /* Begin Constant Hell. */
 
 /* Size and Index constants. */
@@ -157,7 +163,7 @@ const data_t wdl_6 = a4 | b3 | c2 | d1;
 const data_t wdl_7 = a2 | b1;
 
 
-class Board
+class BOARD_API Board
 {
 	public:
 		/* Constructors */

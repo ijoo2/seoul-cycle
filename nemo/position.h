@@ -2,9 +2,15 @@
 
 #include "board.h"
 
+#ifdef POSITION_EXPORTS
+#define POSITION_API _declspec(dllexport)
+#else
+#define POSITION_API _declspec(dllimport)
+#endif
+
 struct Move { unsigned char to, from, piece, color, capturedPiece; };
 
-class Position
+class POSITION_API Position
 {
 	public:
 		/** TODO: Write constructors
